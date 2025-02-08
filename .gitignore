@@ -1,0 +1,6 @@
+wandb
+__pycache__
+config-files/config.yaml
+saved-models
+*.sh
+video-features

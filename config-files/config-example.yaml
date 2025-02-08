@@ -1,0 +1,39 @@
+general:
+  batch_size: 30
+  wandb: False
+  wandb_project: 'visual-recognition-memory-task'
+  wandb_key: ''
+
+dataset:
+  train:
+    videos_dir: 'video-features'
+    n_videos: 90
+    fps: 30
+    clip_length: [6,11]
+    n_tests: 90
+    time_step: 3
+    clip_margin: 20
+    test_duration: 1
+
+    curriculum_dataset: True
+    curriculum_clips: True
+
+  test:
+    videos_dir: 'video-features'
+    n_videos: 90
+    fps: 30
+    clip_length: [6,11]
+    n_tests: 90
+    time_step: 3
+    clip_margin: 20
+    test_duration: 1
+
+    curriculum_clips: True
+
+model:
+    memory_model: 'mamba' #urlstm, lstm, mamba
+    n_blocks: 1
+    load: False
+    load_path: 'saved-models/test.pt'
+    save: True
+    save_path: 'saved-models/test.pt'
