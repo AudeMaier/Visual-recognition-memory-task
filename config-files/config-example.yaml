@@ -1,25 +1,29 @@
 general:
   batch_size: 30
-  wandb: False
+  wandb: False #if True, wandb is used to log the training process
   wandb_project: 'visual-recognition-memory-task'
   wandb_key: ''
 
 dataset:
   train:
-    videos_dir: 'video-features'
-    n_videos: 90
+    videos_dir: 'video-features' #directory where the features are stored
+    n_videos: 90 #number of clips in a datasample
     fps: 30
-    clip_length: [6,11]
-    n_tests: 90
-    time_step: 3
-    clip_margin: 20
-    test_duration: 1
+    clip_length: [6,11] #duration of each clip
+    n_tests: 90 #number of test frames in a datasample
+    time_step: 3 #for each clip, one every time_step frame is shown to the model
+                 #(effective fps = fps/time_step)
+    clip_margin: 20 #number of seconds around clip where test frames cannot be sampled
+    test_duration: 1 #number of times a test frame is shown to the model
+    dataset_size: 50 #number of videos loaded in the dataset
 
-    curriculum_dataset: True
-    curriculum_clips: True
+    curriculum_dataset: True #if True, the size of the dataset increases every 100 training steps,
+                             #once it has reached dataset_size, the dataset is completely replaced every 100 steps
+    curriculum_clips: True #if True, the number and duration of clips in a datasample increase
+                           #every 100 training steps unti they reach n_videos and clip_length
 
   test:
-    videos_dir: 'video-features'
+    videos_dir: 'video-features' #the videos selected to be in the test set will be excluded from the train set
     n_videos: 90
     fps: 30
     clip_length: [6,11]
@@ -27,13 +31,14 @@ dataset:
     time_step: 3
     clip_margin: 20
     test_duration: 1
+    dataset_size: 15
 
     curriculum_clips: True
 
 model:
     memory_model: 'mamba' #urlstm, lstm, mamba
-    n_blocks: 1
-    load: False
+    n_blocks: 1 #number of blocks of the chosen memory model to be stacked
+    load: False #if True, the model is loaded from load_path
     load_path: 'saved-models/test.pt'
-    save: True
+    save: True #if True, the model is saved to save_path
     save_path: 'saved-models/test.pt'
