@@ -7,10 +7,14 @@ general:
 dataset:
   train:
     videos_dir: 'video-features' #directory where the features are stored
-    n_videos: 90 #number of clips in a datasample
     fps: 30
+
+    #the parameters n_videos, clip_length, and n_tests can be given either as an integer or as a list of two integers,
+    #in which case the value is randomly sampled from the interval at each training step
+    n_videos: 90 #number of clips in a datasample
     clip_length: [6,11] #duration of each clip
     n_tests: 90 #number of test frames in a datasample
+
     time_step: 3 #for each clip, one every time_step frame is shown to the model
                  #(effective fps = fps/time_step)
     clip_margin: 20 #number of seconds around clip where test frames cannot be sampled
@@ -24,10 +28,12 @@ dataset:
 
   test:
     videos_dir: 'video-features' #the videos selected to be in the test set will be excluded from the train set
-    n_videos: 90
     fps: 30
+
+    n_videos: 90
     clip_length: [6,11]
     n_tests: 90
+    
     time_step: 3
     clip_margin: 20
     test_duration: 1
