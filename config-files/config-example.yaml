@@ -3,6 +3,7 @@ general:
   wandb: False #if True, wandb is used to log the training process
   wandb_project: 'visual-recognition-memory-task'
   wandb_key: ''
+  output_file: 'output.txt' #file where the train and test losses / accuracies are saved
 
 dataset:
   train:

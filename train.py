@@ -34,6 +34,8 @@ def main(config_file):
     loss_function = nn.BCELoss()
     optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
+    with open('results.txt', 'w') as file:
+        file.write('train_step train_loss train_acc test_loss test_acc\n')
 
     train_acc = 0
     train_loss = 0
@@ -79,7 +81,8 @@ def main(config_file):
             if config['general']['wandb']: 
                 wandb.log({'training loss': train_loss/100, 'training accuracy': train_acc/100, 'test loss': test_loss/10,\
                             'test accuracy': test_acc/10})
-            
+            with open(config['general']['output_file'], 'a') as file:
+                file.write(f'{train_step} {train_loss/100} {train_acc/100} {test_loss/10} {test_acc/10}\n')
             train_acc = 0
             train_loss = 0
             model.train(True)

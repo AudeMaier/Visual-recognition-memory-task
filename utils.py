@@ -24,7 +24,7 @@ class Memorizer(nn.Module):
         super().__init__()
         self.feature_dim = 512
         self.dim = 513
-        self.memory_dim = 512
+        self.memory_dim = 256
         self.model = model
 
         self.linear1 = nn.Linear(self.dim,self.memory_dim)
@@ -198,7 +198,7 @@ class TrainingClipDataset(CustomClipsDataset):
     def __init__(self, videos_dir: str, fps: float, clip_length: tuple, n_videos: tuple,\
                   n_tests: tuple, time_step: int, clip_margin: float, batch_size: int = 1,\
                   test_duration: int = 1, device: str ='cpu', curriculum_dataset: bool = False,\
-                  curriculum_clips: bool = False, dataset_size: int = 30, excluded_videos: list = []):
+                  curriculum_clips: bool = False, dataset_size: int = 50, excluded_videos: list = []):
         assert fps % time_step == 0
         super().__init__(videos_dir, fps, clip_length, n_videos, n_tests, time_step, clip_margin,\
                           batch_size, test_duration, device, dataset_size, excluded_videos, curriculum_clips)
