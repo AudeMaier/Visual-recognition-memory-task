@@ -39,12 +39,13 @@ def process(input_directory: str, output_directory: str):
                 video = video[1000:]
                 video_part = model(video_part)
 
-                torch.save(video_part, os.path.join(tmp_path, str(i) + '.pt'))
+                torch.save(video_part, os.path.join(tmp_path, f"{i:04}.pt"))
 
                 i += 1
 
             #merge all the parts
             files = os.listdir(tmp_path)
+            files.sort()
             features = []
             for file in files:
                 features.append(torch.load(os.path.join(tmp_path, file), weights_only=True))
