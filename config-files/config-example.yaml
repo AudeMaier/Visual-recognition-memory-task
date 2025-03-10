@@ -34,7 +34,7 @@ dataset:
     n_videos: 90
     clip_length: [6,11]
     n_tests: 90
-    
+
     time_step: 3
     clip_margin: 20
     test_duration: 1

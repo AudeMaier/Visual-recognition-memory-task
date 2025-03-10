@@ -2,5 +2,9 @@ wandb
 __pycache__
 config-files/config.yaml
 saved-models
-*.sh
+videos
 video-features
+*.sh
+# pixi environments
+.pixi
+*.egg-info
