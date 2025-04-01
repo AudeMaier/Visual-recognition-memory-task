@@ -1,0 +1,18 @@
+[project]
+authors = ["Johanni Brea <jbrea@users.noreply.github.com>"]
+channels = ["conda-forge"]
+name = "Visual-recognition-memory-task"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.10.*"
+pandas = ">=2.2.3,<3"
+pytorch = ">=2.6.0,<3"
+torchvision = ">=0.21.0,<0.22"
+av = ">=14.2.0,<15"
+
+[pypi-dependencies]
+pytubefix = ">=8.12.2, <9"
