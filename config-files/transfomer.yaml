@@ -1,0 +1,27 @@
+show_timing: False
+
+logging:
+  wandb: True
+  wandb_project: 'Visual Recognition Memory'
+  logfile: 'log/transformer.txt'
+
+dataset:
+  test_indices_file: 'video-features/test_indices.npz'
+  train_indices_file: 'video-features/train_indices.npz'
+  video_path: 'video-features'
+  subsample: 3
+  repeat_test: 1
+  mmap: False
+
+model:
+  model: TransformerEncoder
+  args: {}
+  load: False
+  save: True
+  save_path: 'saved_models/transformer.pt'
+
+training:
+  learning_rate: 1.0e-3
+  n_epochs: 50
+  batch_size: 16
+  num_workers: 2
