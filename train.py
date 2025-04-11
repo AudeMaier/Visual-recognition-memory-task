@@ -73,7 +73,7 @@ def main(config_file):
     for epoch in range(config['training']['n_epochs']):
         train_acc = 0
         train_loss = 0
-        print(epoch)
+        print(f"Starting epoch {epoch}.")
         if show_timing: t0 = time.time()
         for x, y in train_loader:
             if show_timing: t0 = timing(t0, "Loaded data: ")
