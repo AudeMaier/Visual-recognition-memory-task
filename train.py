@@ -24,8 +24,7 @@ def main(config_file):
     show_timing = 'show_timing' in config and config['show_timing'] == True
 
     if config['logging']['wandb']:
-        WANDB_API_KEY=config['logging']['wandb_key']
-        wandb.login(key=WANDB_API_KEY)
+        wandb.login(key=os.environ["WANDB_API_KEY"])
         wandb.init(
             project=config['logging']['wandb_project'],
             config=config,
