@@ -63,7 +63,7 @@ def main(config_file):
     optimizer = AdamW(model.parameters(), lr = config['training']['learning_rate'])
 
     if not os.path.exists(os.path.dirname(config['logging']['logfile'])):
-        os.makedirs(os.path.dirname(config['logging']['logfile'])
+        os.makedirs(os.path.dirname(config['logging']['logfile']))
     with open(config['logging']['logfile'], 'w') as file:
         file.write('train_step train_loss train_acc test_loss test_acc\n')
 
