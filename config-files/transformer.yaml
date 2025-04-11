@@ -15,7 +15,8 @@ dataset:
 
 model:
   model: TransformerEncoder
-  args: {}
+  args:
+    d_embed: 64
   load: False
   save: True
   save_path: 'saved_models/transformer.pt'

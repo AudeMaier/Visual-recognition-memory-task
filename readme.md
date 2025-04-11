@@ -40,7 +40,7 @@ The main script to train and test the network is `train.py`. All parameters can 
 pixi run -e gpu python train.py -f config-files/transformer.yaml
 ```
 
-Make sure to set the `WANDB_API_KEY` environment variable (e.g. `export WANDB_API_KEY="YOUR WANDB API KEY"`), if `wandb: True` in the config file.
+Make sure to set the `WANDB_API_KEY` environment variable (e.g. `export WANDB_API_KEY="YOUR WANDB API KEY"`), if `wandb: True` in the config file. We use `nvcr.io/nvidia/pytorch:24.10-py3` images for training on `V100` or `A100` GPUs.
 
 The recurrent neural network can be chosen to be an lstm, an improved version of the lstm incorporating a refined gating mechanism ([Gu et al. - 2019](https://arxiv.org/abs/1910.09890)), or a mamba network. Several layers of them can be stacked.
 
