@@ -5,14 +5,31 @@ name = "Visual-recognition-memory-task"
 platforms = ["linux-64"]
 version = "0.1.0"
 
-[tasks]
-
 [dependencies]
-python = "3.10.*"
+python = "=3.11,<3.14"
 pandas = ">=2.2.3,<3"
-pytorch = ">=2.6.0,<3"
-torchvision = ">=0.21.0,<0.22"
 av = ">=14.2.0,<15"
+wandb = ">=0.19.8,<0.20"
+yaml = ">=0.2.5,<0.3"
+pytorch = "==2.4.0"
+torchvision = ">=0.19"
+setuptools = ">=66"
 
 [pypi-dependencies]
 pytubefix = ">=8.12.2, <9"
+juliacall = ">=0.9.24, <0.10"
+xlstm = ">=2.0.3, <3"
+
+[feature.gpu]
+system-requirements = { cuda = "12.4" }
+
+[feature.gpu.pypi-dependencies] # comment out the next two lines to run on CPU
+mamba-ssm = { version = "==2.2.0" }
+causal-conv1d = { version = "==1.4.0" }
+
+[feature.gpu.pypi-options]
+no-build-isolation = ["causal-conv1d", "mamba-ssm"]
+
+[environments]
+gpu = { features = ["gpu"] }
+
