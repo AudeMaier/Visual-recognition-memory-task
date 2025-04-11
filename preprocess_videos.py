@@ -100,4 +100,6 @@ if __name__ == '__main__':
     parser.add_argument('--output_dir', type=str, default='video-features', help='Directory to save preprocessed videos')
     parser.add_argument('--batch_size', type=int, default=4*1024, help='Batch size for processing videos')
     args = parser.parse_args()
+    if not os.path.exists(os.path.dirname(args.output_dir)):
+        os.makedirs(os.path.dirname(args.output_dir))
     process(args.input_dir, args.output_dir, args.batch_size)
