@@ -81,11 +81,12 @@ class xLSTM(nn.Module):
         return self.stack(x)
 
 class Mamba(nn.Module):
-    def __init__(self, d_embed: int = 64, d_state: int = 64,
-                       n_layers: int = 2, device = torch.device("cuda" if torch.cuda.is_available() else "cpu"), **kwargs):
+    def __init__(self, d_embed: int = 512,
+                       n_layers: int = 2,
+                       device = torch.device("cuda" if torch.cuda.is_available() else "cpu"), **kwargs):
         super().__init__()
         self.mamba = [mamba_ssm.Mamba2(d_model = d_embed,
-                                       d_state = d_state).to(device) for _ in range(n_layers)]
+                                       **kwargs).to(device) for _ in range(n_layers)]
 
     def forward(self, x):
         for layer in self.mamba:

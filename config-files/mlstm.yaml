@@ -20,8 +20,8 @@ model:
     proj_factor: 1
     conv1d_kernel_size: 2
     n_layers: 1
-  load: False
-  load_path: ''
+  load: True
+  load_path: 'saved_models/mlstm_subsample3.pt'
   save: True
   save_path: 'saved_models/mlstm_subsample3.pt'
 
