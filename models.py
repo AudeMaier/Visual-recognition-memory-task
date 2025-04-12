@@ -82,7 +82,7 @@ class xLSTM(nn.Module):
 
 class Mamba(nn.Module):
     def __init__(self, d_embed: int = 512,
-                       n_layers: int = 2,
+                       n_layers: int = 2, n_test: int = 90, repeat_test: int = 1,
                        device = torch.device("cuda" if torch.cuda.is_available() else "cpu"), **kwargs):
         super().__init__()
         self.mamba = [mamba_ssm.Mamba2(d_model = d_embed,
