@@ -1,0 +1,32 @@
+show_timing: False
+
+logging:
+  wandb: True
+  wandb_project: 'Visual Recognition Memory'
+  logfile: 'log/mamba-one_layer.txt'
+
+dataset:
+  test_indices_file: 'video-features/test_indices.npz'
+  train_indices_file: 'video-features/train_indices.npz'
+  video_path: 'video-features'
+  subsample: 3
+  repeat_test: 1
+  mmap: False
+
+model:
+  model: Mamba
+  args:
+    n_layers: 1
+    d_state: 64
+    d_conv: 4
+    expand: 2
+  load: False
+  load_path: ''
+  save: True
+  save_path: 'saved_models/mamba-one_layer.pt'
+
+training:
+  learning_rate: 1.0e-3
+  n_epochs: 100
+  batch_size: 16
+  num_workers: 2
