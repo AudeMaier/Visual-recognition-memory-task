@@ -3,7 +3,7 @@ show_timing: False
 logging:
   wandb: True
   wandb_project: 'Visual Recognition Memory'
-  logfile: 'log/transformer.txt'
+  logfile: 'log/transformer-no_mask.txt'
 
 dataset:
   test_indices_file: 'video-features/test_indices.npz'
@@ -20,7 +20,7 @@ model:
     no_self: False
   load: False
   save: True
-  save_path: 'saved_models/transformer.pt'
+  save_path: 'saved_models/transformer-no_mask.pt'
 
 training:
   learning_rate: 1.0e-3
