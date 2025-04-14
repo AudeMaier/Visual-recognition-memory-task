@@ -2,7 +2,7 @@ from pytubefix import YouTube
 import os
 import pandas as pd
 
-n_videos = 500
+n_videos = 1000
 
 urls = pd.read_csv('sfd.csv')['video_url'].drop_duplicates().tolist()
 

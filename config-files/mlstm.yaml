@@ -1,0 +1,32 @@
+show_timing: False
+
+logging:
+  wandb: True
+  wandb_project: 'Visual Recognition Memory'
+  logfile: 'log/mlstm_subsample3.txt'
+
+dataset:
+  test_indices_file: 'video-features/test_indices.npz'
+  train_indices_file: 'video-features/train_indices.npz'
+  video_path: 'video-features'
+  subsample: 3
+  repeat_test: 1
+  mmap: False
+
+model:
+  model: xLSTM
+  args:
+    num_heads: 1
+    proj_factor: 1
+    conv1d_kernel_size: 2
+    n_layers: 1
+  load: True
+  load_path: 'saved_models/mlstm_subsample3.pt'
+  save: True
+  save_path: 'saved_models/mlstm_subsample3.pt'
+
+training:
+  learning_rate: 1.0e-3
+  n_epochs: 50
+  batch_size: 16
+  num_workers: 2
