@@ -50,6 +50,6 @@ The file `ur_lstm.py` contains the implementation of the improved lstm, it was t
 
 ### Example Results
 
-With the settings in the config-files, the models "see" 9000 frames of 512 features, and subsequently 180 test frames for which the model needs to decide whether the test frame was in the 9000 seen frames or not (randomized order, 90 seen, 90 unseen test frames). Test sequences are generated with videos that are not used in the training set. Below are accuracies for models based on a simple transformer (with blocks and masking of the current input), or one mLSTM block.
+With the settings in the config-files, the models "see" 9000 frames of 512 features, and subsequently 180 test frames for which the model needs to decide whether the test frame was in the 9000 seen frames or not (randomized order, 90 seen, 90 unseen test frames). Test sequences are generated with videos that are not used in the training set. Below are accuracies for models based on a simple transformer (with two blocks), or one mLSTM or mamba2 block.
 
 ![](training_curves.png)
