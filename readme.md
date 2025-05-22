@@ -29,7 +29,7 @@ pixi run -e gpu python preprocess_videos.py
 Generate the indices of the frames to be used for training and testing.
 
 ```bash
-pixi run generate_dataset.py
+pixi run python generate_dataset.py
 ```
 
 </details>
