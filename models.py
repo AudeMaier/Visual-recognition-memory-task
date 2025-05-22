@@ -70,7 +70,7 @@ class xLSTM(nn.Module):
                     **kwargs
                 )
             ),
-            context_length=1,
+            context_length=sequence_length(subsample, n_test, repeat_test),
             num_blocks=n_layers,
             embedding_dim=d_embed,
             slstm_at=[],
